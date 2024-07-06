@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.imagen-pequena {
+    width: 20%;
+}
+
+.imagen-grande {
+    width: 80%;
+}
+
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.contenido-columnas {
+    display: flex;
+}
+
+.columna-izquierda,
+.columna-derecha {
+    flex: 1;
+}
+
+.form-columna {
+    margin-bottom: 20px;
+}
+
+label {
+    display:block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: calc(100% - 16px);
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 25px;
+    background: url('https://cdn.jsdelivr.net/gh/maikudou/web-design/Pure-CSS-Arrow-Select.png') no-repeat;
+    background-size: 12px;
+    background-position: calc(100% - 8px) center;
+}
+
+h1,
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-columna {
+    flex: 1;
+}
+
+.form-columna button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #47709c;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.form-columna button:hover {
+    background-color: #486e96;
+}
+
+.form-columna button + button {
+    margin-left: 10px;
+}
+
+#resultado {
+    margin-top: 20px;
+}
+
+#resultado p {
+    margin-bottom: 10px;
+}
+
+#resultado span {
+    font-weight: bold;
+}
+
+#resultado span#totalSoles {
+    color: blue;
+}
+
+#resultado span#totalDolares {
+    color: green;
+}
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+}
+
+.footer-column {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.footer-column h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+}
+
+.footer-column p, .footer-column ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-column ul {
+    list-style-type: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 5px;
+}
+
+.social-links {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin-top: -5px; /* Ajuste para hacer la parte inferior más delgada */
+}
+
+.social-links li {
+    margin-right: 10px;
+}
+
+.social-links img {
+    width: 30px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: scale(1.1);
+}
+
+.footer-column:nth-child(2) a {
+    color: #fff; 
+    text-decoration: none; 
+    display: block; 
+    padding: 5px 0; 
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none; 
+    display: inline-block; 
+    padding: 5px; 
+}
+
+
+

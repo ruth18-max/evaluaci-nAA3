@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleta de Viaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="banner">
+        <img src="https://firebasestorage.googleapis.com/v0/b/cine-ffce1.appspot.com/o/logo.png?alt=media&token=a420ee0f-a3eb-488c-9a42-dae0d4b847af" alt="Banner 1" class="imagen-pequena">
+        <img src="https://firebasestorage.googleapis.com/v0/b/cine-ffce1.appspot.com/o/banner.jfif?alt=media&token=ec74d5b4-66dc-4bbd-b4e0-7bce7f42bd79" width="80%" alt="Banner 2" class="imagen-grande">
+    </div>
+    <h2 style="text-align:center;">VIAJA SEGURO CON CRUZ DEL SUR</h2>
+    <hr>
+    <div class="main-content">
+        <div class="container">
+            <div class="contenido-columnas">
+                <div class="columna-izquierda">
+                    <div class="imagen01" style="display: flex; justify-content: center;align-items: center;height: 100%;">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/cine-ffce1.appspot.com/o/unidad.png?alt=media&token=b7c13bd5-27c6-4dec-bda1-f990517c6bcc" alt="" style="max-width: 95%; max-height: 95%;">
+                    </div>
+                </div>
+                <div class="columna-derecha">
+                    <form id="boletaForm">
+                        <h1>Boleta de Viaje</h1><br>
+                        
+                        <div style="display: flex; justify-content: space-between;">
+                            
+                            <div class="form-columna">
+                                <label for="fecha">Fecha:</label>
+                                <input type="date" id="fecha" name="fecha"><br><br>
+                                
+                                <label for="ruc">RUC:</label>
+                                <input type="text" id="ruc" name="ruc" value="78542212010"><br><br>
+                                
+                                <label for="dni">DNI:</label>
+                                <input type="text" id="dni" name="dni"><br><br>
+                                
+                                <label for="medioPago">Medio de Pago:</label><br>
+                                <select id="medioPago" name="pago">
+                                    <option value="efectivo">Efectivo</option>
+                                    <option value="tarjeta-credito">Tarjeta de Crédito</option>
+                                    <option value="tarjeta-debito">Tarjeta de Débito</option>
+                                </select>
+                            </div>
+                            
+                            
+                            <div class="form-columna">
+                                <label for="ruta">Seleccione la ruta:</label>
+                                <select id="ruta" name="ruta" onchange="actualizarPrecio()">
+                                    <option value="lima-mala" data-tarifa="20.00">Lima - Mala</option>
+                                    <option value="lima-canete" data-tarifa="25.00">Lima - Cañete</option>
+                                    <option value="lima-chincha" data-tarifa="30.00">Lima - Chincha</option>
+                                    <option value="lima-pisco" data-tarifa="40.00">Lima - Pisco</option>
+                                </select><br><br>
+                                
+                                <label for="precio">Precio por pasaje (S/):</label>
+                                <input type="number" id="precio" name="precio" min="0.00" step="0.01" value="20.00" readonly><br><br>
+                                
+                                <label for="cantidad">Cantidad de pasajes:</label>
+                                <input type="number" id="cantidad" name="cantidad" min="1" value="1" onchange="verificarCantidad()"><br><br>
+                                
+                                <label for="servicio">Seleccione el tipo de servicio:</label>
+                                <select id="servicio" name="servicio" onchange="actualizarPrecio()">
+                                    <option value="economico">Económico</option>
+                                    <option value="ejecutivo">Ejecutivo</option>
+                                    <option value="presidencial">Presidencial</option>
+                                </select><br><br>
+                                
+                                <div id="resultado" style="display: none;">
+                                    <p>Total en Soles: <span id="totalSoles">0.00</span></p>
+                                    <p>Total en Dólares: <span id="totalDolares">0.00</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-columna" style="display: flex; justify-content: space-between;">
+                            <button type="button" onclick="calcularTotal()">Calcular</button>
+                            <div>
+                                <button type="button" onclick="limpiarForm()">Limpiar</button>
+                                <button type="button" onclick="imprimirBoleta()">Imprimir</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <p>Teléfono: +51 123 456 789</p>
+                <br>
+                <p>Email: info@cruzdelsur.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Enlaces útiles</h3>
+                <ul>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Ayuda y soporte</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <ul class="social-links">
+                    <li><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/cine-fdfdf.appspot.com/o/facebook.png?alt=media&token=48e6f746-1231-4a5d-95d7-e1c44976b4e1" alt="Facebook"></a></li>
+                    <li><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/cine-fdfdf.appspot.com/o/whatsapp.png?alt=media&token=ee2251f8-61b5-4395-a68a-b80670966509" alt="WhatsApp"></a></li>
+                    <li><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/cine-fdfdf.appspot.com/o/instagram.png?alt=media&token=bdc608cd-c7d2-4290-b5fc-6ba02f716015" alt="Instagram"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function actualizarPrecio() {
+            const rutaSelect = document.getElementById('ruta');
+            const precioInput = document.getElementById('precio');
+            const tipoServicio = document.getElementById('servicio').value;
+        
+            const tarifaBase = parseFloat(rutaSelect.options[rutaSelect.selectedIndex].getAttribute('data-tarifa'));
+        
+            let tarifaFinal = tarifaBase;
+            if (tipoServicio === 'ejecutivo') {
+                tarifaFinal *= 1.10; 
+            } else if (tipoServicio === 'presidencial') {
+                tarifaFinal *= 1.15; 
+            }
+        
+            precioInput.value = tarifaFinal.toFixed(2);
+        }
+        
+        function calcularTotal() {
+            const cantidadInput = document.getElementById('cantidad');
+            const tipoCambio = 3.5;
+        
+            const precioUnitario = parseFloat(document.getElementById('precio').value);
+            let cantidadPasajes = parseInt(cantidadInput.value);
+        
+            if (cantidadPasajes >= 3) {
+                cantidadPasajes--;
+            }
+        
+            const totalSoles = precioUnitario * cantidadPasajes;
+            const totalDolares = totalSoles / tipoCambio;
+        
+            document.getElementById('totalSoles').textContent = totalSoles.toFixed(2);
+            document.getElementById('totalDolares').textContent = totalDolares.toFixed(2);
+        
+            document.getElementById('resultado').style.display = 'block';
+        
+            document.getElementById('totalSoles').style.color = 'blue';
+            document.getElementById('totalDolares').style.color = 'green';
+        }
+        
+        function limpiarForm() {
+            document.getElementById('boletaForm').reset();
+            document.getElementById('resultado').style.display = 'none';
+            document.getElementById('totalSoles').textContent = '0.00';
+            document.getElementById('totalDolares').textContent = '0.00';
+            document.getElementById('totalSoles').style.color = '';
+            document.getElementById('totalDolares').style.color = '';
+        }
+        
+        function verificarCantidad() {
+            const cantidadInput = document.getElementById('cantidad');
+            let cantidadPasajes = parseInt(cantidadInput.value);
+        
+            if (cantidadPasajes > 3) {
+                alert('Si elige más de 3 pasajes, se calculará un pasaje menos.');
+            }
+        }
+        
+        function imprimirBoleta() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
